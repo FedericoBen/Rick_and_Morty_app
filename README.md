@@ -1,47 +1,47 @@
 # Rick and Morty App
 
-La **Rick and Morty App** es una aplicación web creada utilizando **React**, **Vite** y **TypeScript**. La aplicación consume la API de [Rick and Morty](https://rickandmortyapi.com/) para mostrar información de los personajes, episodios y ubicaciones del universo de Rick and Morty.
+The **Rick and Morty App** is a web application built using **React**, **Vite**, and **TypeScript**. The app consumes the [Rick and Morty API](https://rickandmortyapi.com/) to display information about characters, episodes, and locations from the Rick and Morty universe.
 
-## Características
+## Features
 
-- **Tecnologías utilizadas**:
+- **Technologies used**:
 
   - React
   - Vite
   - TypeScript
-  - Apollo Client y GraphQL para consumir datos de la API de [Rick and Morty](https://rickandmortyapi.com/)
-  - TailwindCSS para el estilizado
-  - React Router DOM para el manejo de rutas
-  - Zustand para el manejo del estado global
+  - Apollo Client and GraphQL to fetch data from the [Rick and Morty API](https://rickandmortyapi.com/)
+  - TailwindCSS for styling
+  - React Router DOM for routing management
+  - Zustand for global state management
 
-- **Diseño**:
+- **Design**:
 
-  - Se implementa un diseño **atómico**, donde los componentes están organizados según principios de diseño modular.
-  - Se utilizó **TailwindCSS** para facilitar un diseño responsive y atractivo de forma rápida.
+  - An **atomic design** approach is implemented, where components are organized based on modular design principles.
+  - **TailwindCSS** was used to quickly create a responsive and attractive design.
 
-  ## Imágenes de la aplicación
+  ## Application Screenshots
 
-A continuación, algunas vistas de la aplicación:
+Here are some views of the application:
 
-## Diseño de escritorio
+## Desktop Design
 
 ![App Image](/src/assets/img/preview_desktop_app.png)
 
-## Diseño de responsive
+## Responsive Design
 
 ![App Image](/src/assets/img/preview_responsive_app_filter.png)
 ![App Image](/src/assets/img/preview_responsive_app_menu.png)
 ![App Image](/src/assets/img/preview_responsive_app_vie_character.png)
 
-## Configuración para correr el proyecto
+## Setup to Run the Project
 
-1. **Instalar las dependencias:**:
+1. **Install dependencies**:
 
    ```bash
    npm install
    ```
 
-2. **Correr la aplicación en local:**:
+2. **Run the application locally:**:
 
    ```bash
    npm run dev
