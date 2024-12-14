@@ -1,33 +1,67 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import ORDER_RESULT from "../../constants/filters/order-result/index";
-
-export interface CharacterProps {
-  id: number;
-  image: string;
-  name: string;
-  species: string;
-  status: string;
-  occupation: string;
-  like: boolean;
-}
+import { DataCharacter } from "../../interfaces/all.character.data.interface";
 
 interface CharacterState {
-  listCharacters: CharacterProps[];
-  listLikedCharacters: CharacterProps[];
-  selectedCharacter: CharacterProps | null;
-  loadListCharacter: (listCharacter: CharacterProps[]) => void;
-  updateListLikedCharacter: (character: CharacterProps) => void;
-  viewCharacter: (newCharacter: CharacterProps) => void;
+  listCharacters: DataCharacter[];
+  listFilterCharacters: DataCharacter[];
+  listLikedCharacters: DataCharacter[];
+  selectedCharacter: DataCharacter | null;
+  loadListCharacter: (listCharacter: DataCharacter[]) => void;
+  updateListLikedCharacter: (character: DataCharacter) => void;
+  viewCharacter: (newCharacter: DataCharacter) => void;
   orderList: (order: string) => void;
+  filterResults: (parameter: string) => void;
+  updateComments: (comment: string, id: number) => void;
 }
 
 const useCharacterStore = create<CharacterState>()(
   persist(
     (set) => ({
       listCharacters: [],
+      listFilterCharacters: [],
       listLikedCharacters: [],
       selectedCharacter: null,
+      updateComments: (comment, id) =>
+        set((state) => {
+          const updateCharacter = state.listCharacters.find(
+            (character) => character.id == id
+          );
+          if (!updateCharacter) return {};
+
+          return {
+            selectedCharacter: {
+              ...updateCharacter,
+              comments: [comment, ...(updateCharacter.comments ?? [])],
+            },
+            listCharacters: state.listCharacters.map((character) => {
+              const previousListComments = character?.comments ?? [];
+              return {
+                ...character,
+                comments:
+                  character.id == id
+                    ? [comment, ...previousListComments]
+                    : [...previousListComments],
+              };
+            }),
+          };
+        }),
+      filterResults: (parameter) =>
+        set((state) => ({
+          listFilterCharacters: state.listCharacters.filter(
+            (character) =>
+              character.name
+                .toLocaleLowerCase()
+                .includes(parameter.toLocaleLowerCase()) ||
+              character.status
+                .toLocaleLowerCase()
+                .includes(parameter.toLocaleLowerCase()) ||
+              character.species
+                .toLocaleLowerCase()
+                .includes(parameter.toLocaleLowerCase())
+          ),
+        })),
       loadListCharacter: (listCharacters) => set(() => ({ listCharacters })),
       orderList: (order) =>
         set((state) => {

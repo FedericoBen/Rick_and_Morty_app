@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { CharacterProps } from "../../../store/use-character-store";
 import TitleSidebarSection from "../../atoms/title-sidebar-section";
 import CharacterTab from "../character-tab";
+import { DataCharacter } from "../../../interfaces/all.character.data.interface";
 
 interface SidebarSectionProps {
   title: string;
-  list: CharacterProps[];
+  list: DataCharacter[];
 }
 
 const SidebarSection = ({ title, list }: SidebarSectionProps) => {

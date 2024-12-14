@@ -5,7 +5,7 @@ import ResponsiveTemplate from "../components/templates/responsive-template";
 
 const RouterApp = () => {
   return (
-    <Router>
+    <Router basename="/Rick_and_Morty_app">
       <DesktopTemplate />
       <ResponsiveTemplate />
     </Router>

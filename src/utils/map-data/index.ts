@@ -1,7 +1,7 @@
-import { DataResults } from "../../interfaces/all.character.data.interface";
+import { DataCharacter } from "../../interfaces/all.character.data.interface";
 import { CharacterProps } from "../../store/use-character-store";
 
-const mapData = (data: DataResults[], preloadData?: CharacterProps[]) =>
+const mapData = (data: DataCharacter[], preloadData?: CharacterProps[]) =>
   data.map((character) => {
     const preloadedCharacter = preloadData?.find((ch) => ch.id == character.id);
     if (preloadedCharacter) {

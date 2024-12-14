@@ -2,11 +2,13 @@ import { useEffect, RefObject } from "react";
 
 interface UseEventDocumentProps<T extends Element> {
   eventFunction: () => void;
+  extraCondition?: boolean;
   refs: (RefObject<T> | null)[];
 }
 
 const useEventDocument = <T extends Element>({
   refs,
+  extraCondition,
   eventFunction,
 }: UseEventDocumentProps<T>) => {
   function handlerOnClick(e: MouseEvent): void {
@@ -15,7 +17,7 @@ const useEventDocument = <T extends Element>({
     const condition = !path.some((element) =>
       refs.some((ref) => ref?.current === element)
     );
-    if (condition) eventFunction();
+    if (condition || extraCondition) eventFunction();
   }
 
   useEffect(() => {

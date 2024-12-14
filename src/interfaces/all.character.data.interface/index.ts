@@ -1,9 +1,12 @@
-export interface DataResults {
+export interface DataCharacter {
   id: number;
   name: string;
   image: string;
   status: string;
   species: string;
+  comments?: string[];
+  occupation?:string;
+  like?:boolean;
 }
 
 export interface DataApi {
@@ -11,6 +14,6 @@ export interface DataApi {
     info: {
       pages: number;
     };
-    results: DataResults[];
+    results: DataCharacter[];
   };
 }

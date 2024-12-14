@@ -7,14 +7,11 @@ import useLoadingStore from "../../store/use-loading";
 
 const GET_CHARACTERS_BY_PAGE_FILTER = gql`
   query getCharacterByPageFilter(
-    $page: Int
     $species: String
     $status: String
+    $name: String
   ) {
-    characters(page: $page, filter: { species: $species, status: $status }) {
-      info {
-        pages
-      }
+    characters(filter: { species: $species, status: $status, name: $name }) {
       results {
         id
         image
@@ -42,7 +39,7 @@ const useFilter = () => {
       changeLoading(true);
       const resp = await Promise.all(
         [...filtersSelected].map((fl) =>
-          filterCharacters({ variables: { page: 1, [fl.type]: fl.name } })
+          filterCharacters({ variables: { [fl.type]: fl.name } })
         )
       );
 

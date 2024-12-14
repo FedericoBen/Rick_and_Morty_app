@@ -9,7 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        custom_gray: "#6b7280",
+        custom_gray: "#6B7280",
         custom_black: "#111827",
         custom_blue: "#2563EB",
         custom_green: "#3B8520",

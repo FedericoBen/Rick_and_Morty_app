@@ -1,6 +1,6 @@
-import Filter from "../filter";
+import FilterApp from "../filter-app";
 import useCharacterStore from "../../../store/use-character-store";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import SidebarSection from "../../molecules/sidebar-section";
 import mapData from "../../../utils/map-data";
 import useLoadingStore from "../../../store/use-loading";
@@ -13,8 +13,17 @@ const Sidebar = () => {
     (state) => state.loadListCharacter
   );
   const listCharacters = useCharacterStore((state) => state.listCharacters);
+  const listFilterCharacters = useCharacterStore(
+    (state) => state.listFilterCharacters
+  );
   const listLikedCharacters = useCharacterStore(
     (state) => state.listLikedCharacters
+  );
+
+  const listToShow = useMemo(
+    () =>
+      listFilterCharacters.length > 0 ? listFilterCharacters : listCharacters,
+    [listCharacters, listFilterCharacters]
   );
 
   useEffect(() => {
@@ -24,8 +33,10 @@ const Sidebar = () => {
 
   return (
     <nav className="bg-white h-screen flex flex-col pt-[42px] pr-[20px] pb-[42px] pl-[20px] md:bg-gray-50 ">
-      <h1 className="text-[24px]">Rick and Morty list</h1>
-      <Filter />
+      <h1 className="text-[24px] min-h-[40px] mb-[17px]">
+        Rick and Morty list
+      </h1>
+      <FilterApp />
       {loading || loadingApp ? (
         <p>Loading...</p>
       ) : (
@@ -33,12 +44,12 @@ const Sidebar = () => {
           <SidebarSection
             title="STARRED CHARACTERS"
             list={listLikedCharacters.filter((ch) =>
-              listCharacters.some((lck) => lck.id == ch.id)
+              listToShow.some((lck) => lck.id == ch.id)
             )}
           />
           <SidebarSection
             title="CHARACTERS"
-            list={listCharacters.filter(
+            list={listToShow.filter(
               (ch) => !listLikedCharacters.some((lck) => lck.id == ch.id)
             )}
           />

@@ -17,18 +17,20 @@ const SelectedCharacter = () => {
   const navigate = useNavigate();
   if (!selectedCharacter || loadingApp) return null;
   return (
-    <section className="flex flex-col md:w-full pt-[40px] pr-[100px] pb-[40px] pl-[100px]">
+    <section className="flex flex-col md:w-full pt-[40px] pr-[100px] pb-[40px] pl-[100px] overflow-auto">
       <HeaderResponsive onClick={() => navigate(ROUTES.HOME)} />
       <SelectedCharacterHeader
         img={selectedCharacter.image}
         name={selectedCharacter.name}
-        like={selectedCharacter.like}
+        like={!!selectedCharacter.like}
         clickLike={() => updateListLikedCharacter(selectedCharacter)}
       />
       <CharacterData
+        id={selectedCharacter.id}
         specie={selectedCharacter.species}
         status={selectedCharacter.status}
-        occupation={selectedCharacter.occupation}
+        occupation={selectedCharacter.occupation ?? ""}
+        comments={selectedCharacter.comments}
       />
     </section>
   );

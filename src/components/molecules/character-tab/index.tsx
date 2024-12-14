@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import useCharacterStore, {
-  CharacterProps,
-} from "../../../store/use-character-store";
+import useCharacterStore from "../../../store/use-character-store";
 import CharacterInfo from "../../atoms/character-information";
 import Divider from "../../atoms/divider";
 import LikeIcon from "../../atoms/like-icon";
 import ROUTES from "../../../constants/routes";
+import { DataCharacter } from "../../../interfaces/all.character.data.interface";
 
 interface CharacterTabProps {
-  character: CharacterProps;
+  character: DataCharacter;
 }
 
 const CharacterTab = ({ character }: CharacterTabProps) => {
@@ -49,7 +48,7 @@ const CharacterTab = ({ character }: CharacterTabProps) => {
             onClick={() => {
               updateListLikedCharacter(character);
             }}
-            like={character.like}
+            like={!!character.like}
           />
         </span>
       </section>
