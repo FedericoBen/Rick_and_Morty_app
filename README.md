@@ -1,5 +1,7 @@
 # Rick and Morty App
 
+## URL (http://aws-rick-and-morty-app-website.s3-website-us-east-1.amazonaws.com)
+
 The **Rick and Morty App** is a web application built using **React**, **Vite**, and **TypeScript**. The app consumes the [Rick and Morty API](https://rickandmortyapi.com/) to display information about characters, episodes, and locations from the Rick and Morty universe.
 
 ## Features
