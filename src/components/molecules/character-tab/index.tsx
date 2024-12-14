@@ -34,8 +34,8 @@ const CharacterTab = ({ character }: CharacterTabProps) => {
         }}
       />
       <Divider />
-      <section className="flex gap-[20px] items-center pt-[16px] pr-[20px] pb-[16px] pl-[20px]">
-        <div className="h-[32px] w-[32px] flex items-center justify-center  rounded-full overflow-hidden">
+      <section className="flex gap-20 items-center pt-16 pr-20 pb-16 pl-20">
+        <div className="h-32 w-32 flex items-center justify-center  rounded-full overflow-hidden">
           <img
             className="object-cover w-full h-full"
             src={character.image}

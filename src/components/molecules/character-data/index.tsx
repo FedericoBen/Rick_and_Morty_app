@@ -4,13 +4,15 @@ import Button from "../../atoms/button";
 import Divider from "../../atoms/divider";
 import Input from "../../atoms/input";
 import SectionInfo from "../section-info";
+import { Comment } from "../../../interfaces/all.character.data.interface";
+import ListComments from "../list-comments";
 
 interface CharacterDataProp {
   id: number;
   specie: string;
   status: string;
   occupation: string;
-  comments?: string[];
+  comments?: Comment[];
 }
 
 const CharacterData = ({
@@ -25,8 +27,14 @@ const CharacterData = ({
 
   function handlerUpdateComments(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    updateComments(inputComment, id);
-    setInputComment('')
+    updateComments(
+      {
+        id: `${id}-${+new Date()}-${inputComment}`,
+        comment: inputComment,
+      },
+      id
+    );
+    setInputComment("");
   }
 
   return (
@@ -50,11 +58,7 @@ const CharacterData = ({
         </Button>
       </form>
       <Divider />
-      <ul className="w-full flex flex-col item-center gap-4">
-        {comments?.map((comment, i) => (
-          <li className="border-custom_gray border rounded-[8px] w-full p-4" key={`${id}-${i}-${comment}`}>{comment}</li>
-        ))}
-      </ul>
+      <ListComments comments={comments?? []} id={id} />
     </section>
   );
 };

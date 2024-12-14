@@ -7,9 +7,9 @@ const TitleSidebarSection = ({ title, onClick }: TitleSidebarSectionProps) => {
   return (
     <header
       onClick={onClick}
-      className="min-h-[56px] flex items-center cursor-pointer hover:bg-gray-200"
+      className="min-h-56 flex items-center cursor-pointer hover:bg-gray-200"
     >
-      <h1 className="text-[12px] w-full pr-[16px] pl-[16px] text-gray">
+      <h1 className="text-12 w-full pr-16 pl-16 text-gray">
         {title}
       </h1>
     </header>

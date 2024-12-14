@@ -16,7 +16,7 @@ const FilterMenuResponsive = () => {
   });
 
   return (
-    <section className="md:hidden flex flex-col gap-[20px] ring-1 padding-24 h-screen w-screen md:h-[278px] md:w-[343px] bg-white z-50 p-[24px]">
+    <section className="md:hidden flex flex-col gap-20 ring-1 padding-24 h-screen w-screen md:h-278 md:w-343 bg-white z-50 p-24">
       <HeaderResponsive title="Filter" onClick={() => navigate(ROUTES.HOME)} />
       {Sections}
     </section>

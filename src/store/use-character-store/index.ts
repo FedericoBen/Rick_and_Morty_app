@@ -1,7 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import ORDER_RESULT from "../../constants/filters/order-result/index";
-import { DataCharacter } from "../../interfaces/all.character.data.interface";
+import {
+  Comment,
+  DataCharacter,
+} from "../../interfaces/all.character.data.interface";
 
 interface CharacterState {
   listCharacters: DataCharacter[];
@@ -13,7 +16,8 @@ interface CharacterState {
   viewCharacter: (newCharacter: DataCharacter) => void;
   orderList: (order: string) => void;
   filterResults: (parameter: string) => void;
-  updateComments: (comment: string, id: number) => void;
+  updateComments: (comment: Comment, id: number) => void;
+  deleteComment: (comment: Comment, id: number) => void;
 }
 
 const useCharacterStore = create<CharacterState>()(
@@ -43,6 +47,32 @@ const useCharacterStore = create<CharacterState>()(
                   character.id == id
                     ? [comment, ...previousListComments]
                     : [...previousListComments],
+              };
+            }),
+          };
+        }),
+      deleteComment: (comment, id) =>
+        set((state) => {
+          const updateCharacter = state.listCharacters.find(
+            (character) => character.id == id
+          );
+          if (!updateCharacter) return {};
+
+          return {
+            selectedCharacter: {
+              ...updateCharacter,
+              comments: updateCharacter.comments?.filter(
+                (com) => com.id != comment.id
+              ),
+            },
+            listCharacters: state.listCharacters.map((character) => {
+              const previousListComments = character?.comments ?? [];
+              return {
+                ...character,
+                comments:
+                  character.id == id
+                    ? previousListComments.filter((com) => com.id != comment.id)
+                    : previousListComments,
               };
             }),
           };

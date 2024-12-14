@@ -36,7 +36,7 @@ const FilterMenuDesktop = () => {
       {open && (
         <section
           ref={labelRef}
-          className="hidden gap-2 md:flex flex-col justify-between ring-1 ring-black left-0 ring-opacity-5 shadow-lg padding-24 rounded-md  md:absolute md:top-[110%] md:min-h-[278px] md:w-[343px] md:h-auto bg-white z-50 p-[24px]"
+          className="hidden gap-2 md:flex flex-col justify-between ring-1 ring-black left-0 ring-opacity-5 shadow-lg padding-24 rounded-md  md:absolute md:top-110% md:min-h-278 md:w-343 md:h-auto bg-white z-50 p-24"
         >
           {Sections}
         </section>

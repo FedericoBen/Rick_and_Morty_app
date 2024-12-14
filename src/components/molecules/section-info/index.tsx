@@ -7,7 +7,7 @@ interface SectionInfoProps {
 
 const SectionInfo = ({ title, info }: SectionInfoProps) => {
   return (
-    <div className="w-full min-h-[74px pt-[16px] pr-[24px] pb-[16px]">
+    <div className="w-full min-h-74 pt-16 pr-24 pb-16">
       <CharacterInfo title={title} subtitle={info} />
     </div>
   );

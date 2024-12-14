@@ -32,8 +32,8 @@ const Sidebar = () => {
   }, [data]);
 
   return (
-    <nav className="bg-white h-screen flex flex-col pt-[42px] pr-[20px] pb-[42px] pl-[20px] md:bg-gray-50 ">
-      <h1 className="text-[24px] min-h-[40px] mb-[17px]">
+    <nav className="bg-white h-screen flex flex-col pt-42 pr-20 pb-42 pl-20 md:bg-gray-50 ">
+      <h1 className="text-24 min-h-40 mb-17">
         Rick and Morty list
       </h1>
       <FilterApp />

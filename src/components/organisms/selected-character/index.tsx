@@ -17,7 +17,7 @@ const SelectedCharacter = () => {
   const navigate = useNavigate();
   if (!selectedCharacter || loadingApp) return null;
   return (
-    <section className="flex flex-col md:w-full h-full md:pt-[40px] pt-20 md:pr-[100px] pr-[50px] pb-[40px] md:pl-[100px] pl-[50px] overflow-auto">
+    <section className="flex flex-col md:w-full h-full md:pt-40 pt-20 md:pr-100 pr-50 pb-40 md:pl-100 pl-50 overflow-auto">
       <HeaderResponsive onClick={() => navigate(ROUTES.HOME)} />
       <SelectedCharacterHeader
         img={selectedCharacter.image}

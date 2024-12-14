@@ -12,7 +12,7 @@ const ButtonSearch = forwardRef<HTMLButtonElement, ButtonSearchProps>(
       <button
         ref={ref}
         onClick={onClick}
-        className={`flex items-center justify-center hover:bg-primary100 h-[38px] w-[38px] rounded-[8px] ${className}`}
+        className={`flex items-center justify-center hover:bg-primary100 h-38 w-38 rounded-[8px] ${className}`}
       >
         <img src={filterIcon} alt="filterIcon" />
       </button>

@@ -11,7 +11,7 @@ const FilterApp = () => {
   const listCharacters = useCharacterStore((state) => state.listCharacters);
 
   return (
-    <div className="flex flex-col gap-5 mb-[45px] ">
+    <div className="flex flex-col gap-5 mb-45 ">
       <Filter />
       {filtersSelected.length > 0 && (
         <ContainerFilterInfo

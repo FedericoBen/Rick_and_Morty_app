@@ -7,7 +7,7 @@ const Filter = () => {
   const filterResults = useCharacterStore((state) => state.filterResults);
 
   return (
-    <span className="flex relative items-center justify-between w-full bg-[#F3F4F6] h-[52px] rounded-[8px] pt-[9px] pr-[13px] pb-[9px] pl-[20px]">
+    <span className="flex relative items-center justify-between w-full bg-#F3F4F6] h-52 rounded-[8px] pt-9 pr-13 pb-9 pl-20">
       <img src={lenIcon} alt="lenIcon" />
       <Input
         onChange={(e) => filterResults(e.target.value)}

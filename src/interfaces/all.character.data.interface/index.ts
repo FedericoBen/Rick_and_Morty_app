@@ -4,9 +4,14 @@ export interface DataCharacter {
   image: string;
   status: string;
   species: string;
-  comments?: string[];
-  occupation?:string;
-  like?:boolean;
+  comments?: Comment[];
+  occupation?: string;
+  like?: boolean;
+}
+
+export interface Comment {
+  id: string;
+  comment: string;
 }
 
 export interface DataApi {

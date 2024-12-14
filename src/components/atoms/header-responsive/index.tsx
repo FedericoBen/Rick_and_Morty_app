@@ -10,12 +10,12 @@ const HeaderResponsive = ({ onClick, title }: HeaderResponsiveProps) => {
     <header className="flex w-full mb-20 md:hidden">
       <div onClick={onClick}>
         <img
-          className="md:hidden h-[24px] w-[24px] cursor-pointer"
+          className="md:hidden h-24 w-24 cursor-pointer"
           src={arrowBckIcon}
           alt="arrow_back_icon"
         />
       </div>
-      <h3 className="text-black font-greycliff font-medium text-[16px] md:hidden w-full text-center">
+      <h3 className="text-black font-greycliff font-medium text-16 md:hidden w-full text-center">
         {title}
       </h3>
     </header>

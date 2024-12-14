@@ -16,8 +16,8 @@ const SectionFilter = ({
 }: SectionFilterProps) => {
   return (
     <>
-      <h3 className="text-[14px] text-gray">{title}</h3>
-      <span className="flex gap-[8px] w-full justify-center">
+      <h3 className="text-14 text-gray">{title}</h3>
+      <span className="flex gap-8 w-full justify-center">
         {options.map((option) => (
           <OptionFilter
             key={option.id}

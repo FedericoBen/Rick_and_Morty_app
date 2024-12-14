@@ -4,7 +4,7 @@ interface CounterResultsProps {
 
 const CounterResults = ({ count }: CounterResultsProps) => {
   return (
-    <p className="text-[16px] text-custom_blue font-greycliff font-medium">
+    <p className="text-16 text-custom_blue font-greycliff font-medium">
       {`${count} Results`}
     </p>
   );
