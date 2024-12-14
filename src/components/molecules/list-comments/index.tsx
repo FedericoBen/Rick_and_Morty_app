@@ -13,6 +13,7 @@ const ListComments = ({ comments, id }: ListCommentsProps) => {
     <ul className="w-full flex flex-col item-center gap-4">
       {comments?.map((comment) => (
         <CommentItem
+          key={comment.id}
           onDelete={() => deleteComments(comment, id)}
           comment={comment.comment}
         />
