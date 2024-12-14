@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import ORDER_RESULT from "../../constants/filters/order-result/index";
 import {
   Comment,
   DataCharacter,
 } from "../../interfaces/all.character.data.interface";
+import sortList from "../../utils/order-list";
 
 interface CharacterState {
   listCharacters: DataCharacter[];
@@ -94,22 +94,11 @@ const useCharacterStore = create<CharacterState>()(
         })),
       loadListCharacter: (listCharacters) => set(() => ({ listCharacters })),
       orderList: (order) =>
-        set((state) => {
-          const orderList = [...state.listCharacters].sort((a, b) =>
-            order == ORDER_RESULT.ASCENDANT
-              ? a.name.localeCompare(b.name)
-              : b.name.localeCompare(a.name)
-          );
-          const orderListLike = [...state.listLikedCharacters].sort((a, b) =>
-            order == ORDER_RESULT.ASCENDANT
-              ? a.name.localeCompare(b.name)
-              : b.name.localeCompare(a.name)
-          );
-          return {
-            listCharacters: orderList,
-            listLikedCharacters: orderListLike,
-          };
-        }),
+        set((state) => ({
+          listCharacters: sortList(state.listCharacters, order),
+          listLikedCharacters: sortList(state.listLikedCharacters, order),
+          listFilterCharacters: sortList(state.listFilterCharacters, order),
+        })),
       viewCharacter: (character) =>
         set(() => ({
           selectedCharacter: character,
