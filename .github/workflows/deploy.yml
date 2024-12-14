@@ -11,11 +11,11 @@ on:
 env:
   AWS_REGION: us-east-1
   PIPELINE_EXECUTION_ROLE: arn:aws:iam::532353884571:role/PIPELINE_EXECUTION_ROLE
-  BUCKET_NAME:
+  BUCKET_NAME: s3://aws-rick-and-morty-app-website
 
 jobs:
   # Primero subimos el código al bucket S3
-  deploy-front-dev-cf:
+  deploy-front:
     if: github.event_name == 'push' && startsWith(github.ref,'refs/heads/master')
     runs-on: ubuntu-latest
     permissions:
@@ -49,4 +49,4 @@ jobs:
           role-skip-session-tagging: true
 
       - name: Send dist to s3bucket
-        run: aws s3 cp dist s3:// --recursive
+        run: aws s3 cp dist ${{env.BUCKET_NAME}}  --recursive
