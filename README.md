@@ -56,3 +56,9 @@ Here are some views of the application:
    ```bash
    npm run dev
    ```
+
+## Run the test
+
+   ```bash
+   npm test
+   ```
