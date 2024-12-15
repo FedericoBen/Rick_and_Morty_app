@@ -2,9 +2,9 @@ interface CounterResultsProps {
   count: number;
 }
 
-const CounterResults = ({ count }: CounterResultsProps) => {
+const CounterResults = ({ count }: CounterResultsProps) => { 
   return (
-    <p className="text-16 text-custom_blue font-greycliff font-medium">
+    <p className="text-16 text-custom_blue font-sans font-medium">
       {`${count} Results`}
     </p>
   );

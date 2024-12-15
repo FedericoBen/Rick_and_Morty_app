@@ -35,7 +35,7 @@ jobs:
         run: npm install
 
       - name: Create build app
-        run: npm run build
+        run: npm run deploy
 
       - name: Assume the testing pipeline user role
         uses: aws-actions/configure-aws-credentials@v3

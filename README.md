@@ -17,6 +17,7 @@ The **Rick and Morty App** is a web application built using **React**, **Vite**,
 - **Technologies used**:
 
   - React
+  - node > 18
   - Vite
   - TypeScript
   - Apollo Client and GraphQL to fetch data from the [Rick and Morty API](https://rickandmortyapi.com/)

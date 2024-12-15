@@ -10,6 +10,7 @@ const ContainerFilterInfo = ({
   countResults,
   countFilters,
 }: ContainerFilterInfoProps) => {
+  
   return (
     <section className="flex justify-between items-center">
       <CounterResults count={countResults} />
