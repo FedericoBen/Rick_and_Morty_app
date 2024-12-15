@@ -7,5 +7,5 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
-  base: "https://FedericoBen.github.io",
+  base: "https://FedericoBen.github.io/Rick_and_Morty_app",
 });

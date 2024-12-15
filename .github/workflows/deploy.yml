@@ -52,6 +52,7 @@ jobs:
         run: aws s3 cp dist ${{env.BUCKET_NAME}}  --recursive
 
   deploy-github-pages:
+    needs: deploy-front
     if: github.event_name == 'push' && startsWith(github.ref,'refs/heads/master')
     runs-on: ubuntu-latest
     permissions:
