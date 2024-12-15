@@ -74,7 +74,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        env:
-          GIT_USER: github-actions
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: gh-pages -d dist
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
