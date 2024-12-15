@@ -70,8 +70,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Deploy github-pages
+      - name: Create build
         run: npm run build
 
-      - name: Deploy github-pages
-        run: npm run deploy
+      - name: Deploy to GitHub Pages
+        env:
+          GIT_USER: github-actions
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: gh-pages -d dist
