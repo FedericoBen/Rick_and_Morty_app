@@ -30,8 +30,6 @@ const Sidebar = () => {
     if (!data) return;
     loadListCharacter(mapData(data.characters.results, listCharacters));
   }, [data]);
-
-  console.log({listCharacters});
   
 
   return (
