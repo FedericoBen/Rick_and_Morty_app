@@ -5,6 +5,7 @@ import {
   DataCharacter,
 } from "../../interfaces/all.character.data.interface";
 import sortList from "../../utils/order-list";
+import updateListComments from "../../utils/update-list-comments";
 
 interface CharacterState {
   listCharacters: DataCharacter[];
@@ -39,16 +40,16 @@ const useCharacterStore = create<CharacterState>()(
               ...updateCharacter,
               comments: [comment, ...(updateCharacter.comments ?? [])],
             },
-            listCharacters: state.listCharacters.map((character) => {
-              const previousListComments = character?.comments ?? [];
-              return {
-                ...character,
-                comments:
-                  character.id == id
-                    ? [comment, ...previousListComments]
-                    : [...previousListComments],
-              };
-            }),
+            listLikedCharacters: updateListComments(
+              state.listLikedCharacters,
+              id,
+              comment
+            ),
+            listCharacters: updateListComments(
+              state.listCharacters,
+              id,
+              comment
+            ),
           };
         }),
       deleteComment: (comment, id) =>

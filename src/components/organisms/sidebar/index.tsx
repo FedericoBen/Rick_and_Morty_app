@@ -31,6 +31,9 @@ const Sidebar = () => {
     loadListCharacter(mapData(data.characters.results, listCharacters));
   }, [data]);
 
+  console.log({listCharacters});
+  
+
   return (
     <nav className="bg-white h-screen flex flex-col pt-42 pr-20 pb-42 pl-20 md:bg-gray-50 ">
       <h1 className="text-24 min-h-40 mb-17">
